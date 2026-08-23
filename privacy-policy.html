@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BookReader — Privacy Policy</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+    font: 16px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  h1 { font-size: 1.6rem; margin-bottom: .25rem; }
+  h2 { font-size: 1.2rem; margin-top: 2.25rem; }
+  h3 { font-size: 1rem; margin-top: 1.5rem; }
+  .updated { opacity: .7; font-size: .9rem; margin-top: 0; }
+  .lang { margin: 2rem 0; padding-top: 2rem; border-top: 1px solid rgba(128,128,128,.35); }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .95rem; }
+  th, td { border: 1px solid rgba(128,128,128,.35); padding: .5rem .6rem; text-align: left; vertical-align: top; }
+  code { font-size: .9em; }
+</style>
+</head>
+<body>
+
+<h1>BookReader — Privacy Policy</h1>
+<p class="updated">Last updated: 23 August 2026</p>
+
+<p>BookReader is an e-book reader for Android. It is developed by an individual
+developer and distributed through Google Play. This policy explains what data the
+app handles, where that data goes, and what it never does.</p>
+
+<h2>Short version</h2>
+<ul>
+  <li>BookReader has <strong>no accounts, no sign-in, and no analytics or advertising SDKs</strong>.</li>
+  <li>Your books, reading positions, bookmarks and notes stay <strong>on your device</strong>.</li>
+  <li>The developer <strong>does not operate any server</strong> and never receives your data.</li>
+  <li>Network requests go only to the public catalogues you browse and — only if you
+      configure it yourself — to Google's Gemini API with your own API key.</li>
+</ul>
+
+<h2>Data stored on your device</h2>
+<table>
+  <tr><th>What</th><th>Where</th><th>Why</th></tr>
+  <tr>
+    <td>EPUB and PDF files you add or download, and cover images extracted from them</td>
+    <td>App-private storage on the device</td>
+    <td>So the books can be opened offline</td>
+  </tr>
+  <tr>
+    <td>Reading progress, bookmarks, highlights and notes</td>
+    <td>Local database on the device</td>
+    <td>To reopen a book where you left it</td>
+  </tr>
+  <tr>
+    <td>Settings: theme, interface language, reading typography</td>
+    <td>Local preferences on the device</td>
+    <td>To keep your choices between launches</td>
+  </tr>
+  <tr>
+    <td>Your Gemini API key, if you enter one</td>
+    <td>Local preferences on the device</td>
+    <td>To authenticate your own requests to Google's Gemini API</td>
+  </tr>
+</table>
+
+<p>None of this is transmitted to the developer. Uninstalling the app removes all of it.</p>
+
+<h3>Backups</h3>
+<p>If Android backup is enabled on your device, your reading progress, bookmarks, notes
+and settings may be included in your own Google Drive backup, under your Google account
+and subject to Google's terms. Book files, cover images and your Gemini API key are
+explicitly <strong>excluded</strong> from cloud backup. Book files are included in a
+direct device-to-device transfer when you set up a new phone; the API key is excluded
+from that as well and must be entered again.</p>
+
+<h3>Files you open</h3>
+<p>When you add a book, Android's system file picker gives the app access to that one
+file only. The app copies it into its own private storage and does not scan, index or
+read anything else on your device. BookReader requests no storage, location, camera,
+microphone or contacts permissions. Its only permission is <code>INTERNET</code>.</p>
+
+<h2>Data sent over the network</h2>
+
+<h3>1. Book catalogues</h3>
+<p>When you use the <em>Classics</em> tab, the app contacts these public services
+directly from your device:</p>
+<ul>
+  <li><strong>Gutendex</strong> (<code>gutendex.com</code>) and <strong>Project Gutenberg</strong>
+      (<code>gutenberg.org</code>, <code>gutenberg.pglaf.org</code>) — to search the catalogue,
+      show covers and download books.</li>
+  <li><strong>Wikisource</strong> (<code>ru.wikisource.org</code>, <code>ws-export.wmcloud.org</code>)
+      — to search and download books.</li>
+</ul>
+<p>These requests contain your search terms and the book you chose, plus the technical
+information any web request carries, such as your IP address and the app's User-Agent
+string. Those services are operated by third parties under their own privacy policies.
+No identifier of you or your device is added by BookReader. If you never open the
+Classics tab, no such request is made.</p>
+
+<h3>2. AI explanations (optional, off by default)</h3>
+<p>The reader has an optional <em>Explain with AI</em> action. It does nothing until you
+enter your own Google Gemini API key in Settings. When you select a passage and tap
+<em>Explain with AI</em>:</p>
+<ul>
+  <li>The selected passage (at most 2000 characters) is sent from your device directly to
+      Google's Gemini API, authenticated with your key.</li>
+  <li>The request goes to Google, not to the developer. Google's handling of it is governed
+      by the <a href="https://ai.google.dev/gemini-api/terms">Gemini API terms</a> and
+      Google's privacy policy for the account that issued the key.</li>
+  <li>Nothing else is sent: not the book file, not your library, not your identity.</li>
+  <li>Answers are generated by an AI model and can be wrong. They are shown for a moment,
+      not stored.</li>
+</ul>
+<p>If you remove the key from Settings, the feature stops sending anything.</p>
+
+<h3>What is never sent</h3>
+<p>BookReader does not transmit your library contents, the books you read, your reading
+positions, bookmarks, notes, or any device or advertising identifier — to the developer
+or to anyone else. There is no telemetry and no crash-reporting service in the app.</p>
+
+<h2>Children</h2>
+<p>BookReader is not directed at children under 13 and collects no personal information
+from anyone. The catalogues it browses contain works of classic literature intended for a
+general audience; the app does not filter their content.</p>
+
+<h2>Your choices</h2>
+<ul>
+  <li>Delete a book in the app to remove its file, cover, bookmarks and notes.</li>
+  <li>Clear the Gemini API key field in Settings to remove the key from the device.</li>
+  <li>Uninstall the app, or use Android's <em>Clear storage</em>, to erase everything it holds.</li>
+  <li>Because the developer holds no data about you, there is nothing to request or delete
+      on the developer's side.</li>
+</ul>
+
+<h2>Changes</h2>
+<p>If this policy changes, the updated version will be published at this address with a new
+date at the top.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy, or reports about an AI-generated answer, can be sent to
+<a href="mailto:artyug.official@gmail.com">artyug.official@gmail.com</a>.</p>
+
+<div class="lang">
+
+<h1>BookReader — Политика конфиденциальности</h1>
+<p class="updated">Обновлено: 23 августа 2026</p>
+
+<p>BookReader — читалка электронных книг для Android. Приложение разрабатывает частный
+разработчик, распространяется оно через Google Play. Ниже — что приложение делает с данными,
+куда они уходят и чего оно не делает никогда.</p>
+
+<h2>Коротко</h2>
+<ul>
+  <li>В BookReader <strong>нет учётных записей, входа, аналитики и рекламных SDK</strong>.</li>
+  <li>Книги, прогресс чтения, закладки и заметки остаются <strong>на устройстве</strong>.</li>
+  <li>У разработчика <strong>нет сервера</strong>, и он не получает ваших данных.</li>
+  <li>Сеть используется только для публичных каталогов, которые вы открываете сами, и —
+      если вы настроите это сами — для запросов к Gemini API вашим собственным ключом.</li>
+</ul>
+
+<h2>Данные на устройстве</h2>
+<table>
+  <tr><th>Что</th><th>Где</th><th>Зачем</th></tr>
+  <tr>
+    <td>Файлы EPUB и PDF, добавленные или скачанные вами, и обложки, извлечённые из них</td>
+    <td>Приватное хранилище приложения</td>
+    <td>Чтобы книги открывались без сети</td>
+  </tr>
+  <tr>
+    <td>Прогресс чтения, закладки, выделения и заметки</td>
+    <td>Локальная база на устройстве</td>
+    <td>Чтобы книга открывалась там, где вы остановились</td>
+  </tr>
+  <tr>
+    <td>Настройки: тема, язык интерфейса, оформление текста</td>
+    <td>Локальные настройки на устройстве</td>
+    <td>Чтобы выбор сохранялся между запусками</td>
+  </tr>
+  <tr>
+    <td>Ваш ключ Gemini API, если вы его ввели</td>
+    <td>Локальные настройки на устройстве</td>
+    <td>Чтобы подписывать ваши собственные запросы к Gemini API</td>
+  </tr>
+</table>
+
+<p>Ничего из этого разработчику не передаётся. Удаление приложения стирает всё это вместе с ним.</p>
+
+<h3>Резервные копии</h3>
+<p>Если на устройстве включено резервное копирование Android, прогресс чтения, закладки,
+заметки и настройки могут попасть в вашу же копию в Google Drive — под вашей учётной записью
+и по правилам Google. Файлы книг, обложки и ключ Gemini из облачной копии
+<strong>исключены</strong>. Файлы книг переносятся при прямом переносе с телефона на телефон;
+ключ исключён и оттуда — его нужно ввести заново.</p>
+
+<h3>Файлы, которые вы открываете</h3>
+<p>Когда вы добавляете книгу, системный выбор файлов Android даёт приложению доступ только к
+этому одному файлу. Приложение копирует его в своё приватное хранилище и не сканирует,
+не индексирует и не читает ничего другого на устройстве. BookReader не запрашивает доступа
+к хранилищу, геолокации, камере, микрофону или контактам. Единственное его разрешение —
+<code>INTERNET</code>.</p>
+
+<h2>Данные, уходящие в сеть</h2>
+
+<h3>1. Каталоги книг</h3>
+<p>Когда вы открываете вкладку «Классика», приложение обращается прямо с вашего устройства к
+публичным сервисам:</p>
+<ul>
+  <li><strong>Gutendex</strong> (<code>gutendex.com</code>) и <strong>Project Gutenberg</strong>
+      (<code>gutenberg.org</code>, <code>gutenberg.pglaf.org</code>) — поиск по каталогу,
+      обложки и скачивание книг.</li>
+  <li><strong>Викитека</strong> (<code>ru.wikisource.org</code>, <code>ws-export.wmcloud.org</code>)
+      — поиск и скачивание книг.</li>
+</ul>
+<p>В таких запросах уходит ваш поисковый запрос и выбранная книга, а также то, что несёт любой
+веб-запрос: IP-адрес и строка User-Agent приложения. Эти сервисы принадлежат третьим лицам и
+работают по своим политикам. Никаких идентификаторов вас или устройства BookReader не
+добавляет. Если вкладку «Классика» не открывать, таких запросов не будет вовсе.</p>
+
+<h3>2. Объяснения с помощью ИИ (по желанию, по умолчанию выключено)</h3>
+<p>В читалке есть необязательное действие «Объяснить с помощью ИИ». Оно не делает ничего,
+пока вы не введёте в настройках свой ключ Google Gemini API. Когда вы выделяете отрывок и
+нажимаете «Объяснить»:</p>
+<ul>
+  <li>Выделенный отрывок (не более 2000 символов) уходит с вашего устройства напрямую в
+      Gemini API от Google, подписанный вашим ключом.</li>
+  <li>Запрос идёт к Google, а не к разработчику. Как Google с ним обходится, определяют
+      <a href="https://ai.google.dev/gemini-api/terms">условия Gemini API</a> и политика
+      конфиденциальности учётной записи, которой выдан ключ.</li>
+  <li>Больше не уходит ничего: ни файл книги, ни библиотека, ни ваша личность.</li>
+  <li>Ответ создаётся моделью ИИ и может быть неточным. Он показывается на экране и нигде не
+      сохраняется.</li>
+</ul>
+<p>Если убрать ключ из настроек, функция перестаёт отправлять что-либо.</p>
+
+<h3>Чего не уходит никогда</h3>
+<p>BookReader не передаёт ни разработчику, ни кому-либо ещё содержимое вашей библиотеки, список
+читаемых книг, прогресс чтения, закладки, заметки, идентификаторы устройства или рекламные
+идентификаторы. Ни телеметрии, ни службы отчётов о сбоях в приложении нет.</p>
+
+<h2>Дети</h2>
+<p>BookReader не адресован детям младше 13 лет и ни у кого не собирает персональных данных.
+В каталогах, которые он открывает, лежит классическая литература для широкой аудитории;
+приложение её содержимое не фильтрует.</p>
+
+<h2>Ваши возможности</h2>
+<ul>
+  <li>Удалить книгу в приложении — вместе с файлом, обложкой, закладками и заметками.</li>
+  <li>Очистить поле ключа Gemini в настройках — ключ пропадёт с устройства.</li>
+  <li>Удалить приложение или нажать «Очистить хранилище» в Android — сотрётся всё.</li>
+  <li>Поскольку у разработчика ваших данных нет, запрашивать или удалять на его стороне
+      нечего.</li>
+</ul>
+
+<h2>Изменения</h2>
+<p>Если политика изменится, новая версия появится по этому же адресу с новой датой наверху.</p>
+
+<h2>Контакты</h2>
+<p>Вопросы по политике и жалобы на ответ, созданный ИИ, —
+<a href="mailto:artyug.official@gmail.com">artyug.official@gmail.com</a>.</p>
+
+</div>
+
+</body>
+</html>
