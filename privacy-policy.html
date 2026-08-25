@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BookReader — Privacy Policy</title>
+<title>Lexirion — Privacy Policy</title>
 <style>
   :root { color-scheme: light dark; }
   body {
@@ -24,20 +24,21 @@
 </head>
 <body>
 
-<h1>BookReader — Privacy Policy</h1>
-<p class="updated">Last updated: 23 August 2026</p>
+<h1>Lexirion — Privacy Policy</h1>
+<p class="updated">Last updated: 24 August 2026</p>
 
-<p>BookReader is an e-book reader for Android. It is developed by an individual
+<p>Lexirion is an e-book reader for Android. It is developed by an individual
 developer and distributed through Google Play. This policy explains what data the
 app handles, where that data goes, and what it never does.</p>
 
 <h2>Short version</h2>
 <ul>
-  <li>BookReader has <strong>no accounts, no sign-in, and no analytics or advertising SDKs</strong>.</li>
+  <li>Lexirion has <strong>no accounts, no sign-in, and no analytics or advertising SDKs</strong>.</li>
   <li>Your books, reading positions, bookmarks and notes stay <strong>on your device</strong>.</li>
   <li>The developer <strong>does not operate any server</strong> and never receives your data.</li>
-  <li>Network requests go only to the public catalogues you browse and — only if you
-      configure it yourself — to Google's Gemini API with your own API key.</li>
+  <li>Network requests go only to the public catalogues you browse, any catalogue
+      address you add yourself, and — only if you configure it yourself — to Google's
+      Gemini API with your own API key.</li>
 </ul>
 
 <h2>Data stored on your device</h2>
@@ -78,7 +79,7 @@ from that as well and must be entered again.</p>
 <h3>Files you open</h3>
 <p>When you add a book, Android's system file picker gives the app access to that one
 file only. The app copies it into its own private storage and does not scan, index or
-read anything else on your device. BookReader requests no storage, location, camera,
+read anything else on your device. Lexirion requests no storage, location, camera,
 microphone or contacts permissions. Its only permission is <code>INTERNET</code>.</p>
 
 <h2>Data sent over the network</h2>
@@ -96,10 +97,26 @@ directly from your device:</p>
 <p>These requests contain your search terms and the book you chose, plus the technical
 information any web request carries, such as your IP address and the app's User-Agent
 string. Those services are operated by third parties under their own privacy policies.
-No identifier of you or your device is added by BookReader. If you never open the
+No identifier of you or your device is added by Lexirion. If you never open the
 Classics tab, no such request is made.</p>
 
-<h3>2. AI explanations (optional, off by default)</h3>
+<h3>2. Your own OPDS catalogues (optional, none added by default)</h3>
+<p>Settings has an optional <em>Custom catalogues</em> section where you can add the
+address of any OPDS catalogue yourself — a library, a Calibre server, anything that
+speaks the format. None are added by default.</p>
+<ul>
+  <li>Only <code>https://</code> addresses are accepted.</li>
+  <li>Before saving, the app makes one request to that address to confirm it opens and
+      is a real OPDS catalogue.</li>
+  <li>Once added, browsing or searching it works exactly like Gutendex or Wikisource
+      above: your search terms and the book you choose go directly from your device to
+      that address, plus the same technical information any web request carries.</li>
+  <li>The address is not known to the developer in advance — you choose it, and the app
+      does not suggest or bundle any third-party OPDS servers.</li>
+  <li>Remove a catalogue in Settings at any time to stop any request to it.</li>
+</ul>
+
+<h3>3. AI explanations (optional, off by default)</h3>
 <p>The reader has an optional <em>Explain with AI</em> action. It does nothing until you
 enter your own Google Gemini API key in Settings. When you select a passage and tap
 <em>Explain with AI</em>:</p>
@@ -116,12 +133,12 @@ enter your own Google Gemini API key in Settings. When you select a passage and 
 <p>If you remove the key from Settings, the feature stops sending anything.</p>
 
 <h3>What is never sent</h3>
-<p>BookReader does not transmit your library contents, the books you read, your reading
+<p>Lexirion does not transmit your library contents, the books you read, your reading
 positions, bookmarks, notes, or any device or advertising identifier — to the developer
 or to anyone else. There is no telemetry and no crash-reporting service in the app.</p>
 
 <h2>Children</h2>
-<p>BookReader is not directed at children under 13 and collects no personal information
+<p>Lexirion is not directed at children under 13 and collects no personal information
 from anyone. The catalogues it browses contain works of classic literature intended for a
 general audience; the app does not filter their content.</p>
 
@@ -144,20 +161,21 @@ date at the top.</p>
 
 <div class="lang">
 
-<h1>BookReader — Политика конфиденциальности</h1>
-<p class="updated">Обновлено: 23 августа 2026</p>
+<h1>Lexirion — Политика конфиденциальности</h1>
+<p class="updated">Обновлено: 24 августа 2026</p>
 
-<p>BookReader — читалка электронных книг для Android. Приложение разрабатывает частный
+<p>Lexirion — читалка электронных книг для Android. Приложение разрабатывает частный
 разработчик, распространяется оно через Google Play. Ниже — что приложение делает с данными,
 куда они уходят и чего оно не делает никогда.</p>
 
 <h2>Коротко</h2>
 <ul>
-  <li>В BookReader <strong>нет учётных записей, входа, аналитики и рекламных SDK</strong>.</li>
+  <li>В Lexirion <strong>нет учётных записей, входа, аналитики и рекламных SDK</strong>.</li>
   <li>Книги, прогресс чтения, закладки и заметки остаются <strong>на устройстве</strong>.</li>
   <li>У разработчика <strong>нет сервера</strong>, и он не получает ваших данных.</li>
-  <li>Сеть используется только для публичных каталогов, которые вы открываете сами, и —
-      если вы настроите это сами — для запросов к Gemini API вашим собственным ключом.</li>
+  <li>Сеть используется только для публичных каталогов, которые вы открываете сами, для
+      адреса каталога, который вы добавили сами, и — если вы настроите это сами — для
+      запросов к Gemini API вашим собственным ключом.</li>
 </ul>
 
 <h2>Данные на устройстве</h2>
@@ -197,7 +215,7 @@ date at the top.</p>
 <h3>Файлы, которые вы открываете</h3>
 <p>Когда вы добавляете книгу, системный выбор файлов Android даёт приложению доступ только к
 этому одному файлу. Приложение копирует его в своё приватное хранилище и не сканирует,
-не индексирует и не читает ничего другого на устройстве. BookReader не запрашивает доступа
+не индексирует и не читает ничего другого на устройстве. Lexirion не запрашивает доступа
 к хранилищу, геолокации, камере, микрофону или контактам. Единственное его разрешение —
 <code>INTERNET</code>.</p>
 
@@ -215,10 +233,26 @@ date at the top.</p>
 </ul>
 <p>В таких запросах уходит ваш поисковый запрос и выбранная книга, а также то, что несёт любой
 веб-запрос: IP-адрес и строка User-Agent приложения. Эти сервисы принадлежат третьим лицам и
-работают по своим политикам. Никаких идентификаторов вас или устройства BookReader не
+работают по своим политикам. Никаких идентификаторов вас или устройства Lexirion не
 добавляет. Если вкладку «Классика» не открывать, таких запросов не будет вовсе.</p>
 
-<h3>2. Объяснения с помощью ИИ (по желанию, по умолчанию выключено)</h3>
+<h3>2. Свои каталоги OPDS (по желанию, по умолчанию их нет)</h3>
+<p>В настройках есть необязательный раздел «Свои каталоги», куда можно добавить адрес
+любого каталога OPDS самостоятельно — библиотеки, Calibre-сервера, чего угодно, что
+говорит по этому протоколу. По умолчанию таких каталогов нет ни одного.</p>
+<ul>
+  <li>Принимаются только адреса <code>https://</code>.</li>
+  <li>Перед сохранением приложение один раз обращается по этому адресу, чтобы убедиться,
+      что он открывается и это действительно каталог OPDS.</li>
+  <li>После добавления просмотр и поиск по нему работают точно так же, как у Gutendex и
+      Викитеки выше: поисковый запрос и выбранная книга уходят с вашего устройства прямо
+      на этот адрес, плюс то же самое, что несёт любой веб-запрос.</li>
+  <li>Разработчик заранее этот адрес не знает — его выбираете вы, приложение само не
+      предлагает и не встраивает никаких сторонних OPDS-серверов.</li>
+  <li>Удалить каталог в настройках можно в любой момент — тогда запросы к нему прекращаются.</li>
+</ul>
+
+<h3>3. Объяснения с помощью ИИ (по желанию, по умолчанию выключено)</h3>
 <p>В читалке есть необязательное действие «Объяснить с помощью ИИ». Оно не делает ничего,
 пока вы не введёте в настройках свой ключ Google Gemini API. Когда вы выделяете отрывок и
 нажимаете «Объяснить»:</p>
@@ -235,12 +269,12 @@ date at the top.</p>
 <p>Если убрать ключ из настроек, функция перестаёт отправлять что-либо.</p>
 
 <h3>Чего не уходит никогда</h3>
-<p>BookReader не передаёт ни разработчику, ни кому-либо ещё содержимое вашей библиотеки, список
+<p>Lexirion не передаёт ни разработчику, ни кому-либо ещё содержимое вашей библиотеки, список
 читаемых книг, прогресс чтения, закладки, заметки, идентификаторы устройства или рекламные
 идентификаторы. Ни телеметрии, ни службы отчётов о сбоях в приложении нет.</p>
 
 <h2>Дети</h2>
-<p>BookReader не адресован детям младше 13 лет и ни у кого не собирает персональных данных.
+<p>Lexirion не адресован детям младше 13 лет и ни у кого не собирает персональных данных.
 В каталогах, которые он открывает, лежит классическая литература для широкой аудитории;
 приложение её содержимое не фильтрует.</p>
 
