@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lexirion — Privacy Policy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; line-height: 1.55; color: #1a1a1a; }
+  h1 { font-size: 1.6em; }
+  h2 { font-size: 1.2em; margin-top: 2em; }
+  footer { margin-top: 3em; color: #666; font-size: 0.9em; }
+  hr { margin: 3em 0; border: none; border-top: 1px solid #ddd; }
+</style>
+</head>
+<body>
+
+<h1>Lexirion — Privacy Policy</h1>
+<p><em>Last updated: August 25, 2026</em></p>
+
+<p>Lexirion is an e-book reader for EPUB, PDF, and FB2 files. It has no accounts, no backend
+server, and no analytics or advertising SDKs. This page explains exactly what leaves your
+device and why.</p>
+
+<h2>Data stored only on your device</h2>
+<p>Your book library, reading progress, bookmarks, highlights, notes, and reading statistics
+are stored in the app's private storage on your device. None of this is sent anywhere or
+collected by the developer.</p>
+
+<h2>What leaves your device, and when</h2>
+<ul>
+<li><strong>Browsing the built-in classics catalog.</strong> Opening the Classics tab or
+searching it sends a request to Project Gutenberg (via <code>gutendex.com</code> and
+<code>gutenberg.pglaf.org</code>) or Wikisource (<code>ru.wikisource.org</code>,
+<code>ws-export.wmcloud.org</code>) to list or download books. If you type a search query,
+that query is sent to whichever catalog you searched. This only happens if you open the
+Classics tab.</li>
+<li><strong>Custom OPDS catalogs.</strong> If you add your own catalog (e.g. a personal
+Calibre server) in Settings, the app sends requests only to the address you entered, the
+same way — to list, search, or download books from it.</li>
+<li><strong>Asking Gemini to explain a passage (optional).</strong> This feature does nothing
+until you enter your own Google Gemini API key in Settings. If you select text and tap
+"Explain with AI," the selected passage (up to 2000 characters) is sent directly to Google's
+Gemini API using your own key. The developer never sees this request or its answer — the
+answer is shown on screen and is not saved anywhere.</li>
+<li><strong>Sending a crash report (optional).</strong> If the app crashes, a stack trace is
+saved to a private file on your device. It is never sent automatically. If you choose to
+report it, the app opens your email app with the report pre-filled — you see the full text
+and decide whether to send it, and to whom.</li>
+</ul>
+<p>All network requests use HTTPS. Every request also carries the standard information any
+HTTP request carries (your IP address and a generic <code>Lexirion/&lt;version&gt;</code>
+user-agent) — the app does not add any identifier of its own.</p>
+
+<h2>What the app never does</h2>
+<ul>
+<li>No accounts, no sign-in, no user identifiers.</li>
+<li>No analytics, telemetry, or crash-reporting SDKs.</li>
+<li>No advertising SDKs, no ads.</li>
+<li>No access to contacts, location, camera, or any permission other than internet access.</li>
+</ul>
+
+<h2>Your Gemini API key</h2>
+<p>If you choose to add one, your API key is encrypted (AES/GCM, using a key held in the
+Android Keystore) and stored only on your device. It is excluded from cloud backup and
+device-to-device transfer. It is sent only to Google's Gemini API, as authorization for your
+own requests — never to the developer.</p>
+
+<h2>Deleting your data</h2>
+<p>Since the app has no accounts and no backend, there is no data on any server to request
+deletion of. To remove data on your device: delete a book from within the app, use Android's
+"Clear storage" for the app, or uninstall the app.</p>
+
+<h2>Children</h2>
+<p>Lexirion is not directed at children and does not knowingly collect data from children.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this policy changes, the updated version will be posted at this same address with a new
+"Last updated" date.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy: <a href="mailto:artem.hudojnik@gmail.com">artem.hudojnik@gmail.com</a></p>
+
+<hr>
+
+<h1>Lexirion — Политика конфиденциальности</h1>
+<p><em>Обновлено: 25 августа 2026</em></p>
+
+<p>Lexirion — читалка EPUB, PDF и FB2. У приложения нет аккаунтов, нет своего сервера, нет
+аналитики и рекламных SDK. На этой странице — что именно и когда уходит с устройства.</p>
+
+<h2>Что хранится только на устройстве</h2>
+<p>Библиотека книг, прогресс чтения, закладки, выделения, заметки и статистика чтения
+хранятся в приватном хранилище приложения на вашем устройстве. Ничего из этого никуда не
+отправляется и не собирается разработчиком.</p>
+
+<h2>Что уходит с устройства и когда</h2>
+<ul>
+<li><strong>Просмотр встроенного каталога классики.</strong> Открытие вкладки «Классика» или
+поиск в ней отправляет запрос в Project Gutenberg (<code>gutendex.com</code>,
+<code>gutenberg.pglaf.org</code>) или Викитеку (<code>ru.wikisource.org</code>,
+<code>ws-export.wmcloud.org</code>) для списка или скачивания книг. Если вы ввели поисковый
+запрос, он уходит в тот каталог, где вы искали. Это происходит только если вы открыли
+вкладку «Классика».</li>
+<li><strong>Свои каталоги OPDS.</strong> Если вы добавили свой каталог (например, личный
+сервер Calibre) в настройках, запросы уходят только на указанный вами адрес — так же, для
+списка, поиска или скачивания книг.</li>
+<li><strong>Вопрос к Gemini об отрывке (по желанию).</strong> Функция ничего не делает, пока
+вы не введёте собственный ключ API Google Gemini в настройках. Если вы выделите текст и
+нажмёте «Объяснить с помощью ИИ», выделенный отрывок (до 2000 символов) отправляется прямо в
+Gemini API вашим ключом. Разработчик не видит ни запрос, ни ответ — ответ показывается на
+экране и нигде не сохраняется.</li>
+<li><strong>Отправка отчёта о сбое (по желанию).</strong> Если приложение упало, стек
+сохраняется в приватный файл на устройстве. Сам он никуда не отправляется. Если вы решите
+отправить отчёт, приложение открывает ваше почтовое приложение с готовым текстом — вы видите
+весь текст и сами решаете, отправлять ли его и кому.</li>
+</ul>
+<p>Все сетевые запросы идут по HTTPS. Каждый запрос несёт то, что несёт любой HTTP-запрос
+(IP-адрес и обычный <code>User-Agent</code> вида <code>Lexirion/&lt;версия&gt;</code>) — своих
+идентификаторов приложение не добавляет.</p>
+
+<h2>Чего приложение не делает никогда</h2>
+<ul>
+<li>Нет аккаунтов, входа, идентификаторов пользователя.</li>
+<li>Нет аналитики, телеметрии, SDK для отчётов о сбоях.</li>
+<li>Нет рекламных SDK, нет рекламы.</li>
+<li>Нет доступа к контактам, геолокации, камере — никаких разрешений, кроме доступа в
+интернет.</li>
+</ul>
+
+<h2>Ваш ключ Gemini API</h2>
+<p>Если вы решите его добавить, ключ шифруется (AES/GCM, ключ шифрования хранится в Android
+Keystore) и лежит только на устройстве. Он исключён из облачного резервного копирования и
+переноса между устройствами. Уходит он только в Gemini API как авторизация ваших
+собственных запросов — никогда разработчику.</p>
+
+<h2>Удаление данных</h2>
+<p>Поскольку у приложения нет аккаунтов и своего сервера, удалять на стороне разработчика
+нечего. Чтобы удалить данные на устройстве: удалите книгу в приложении, используйте «Очистить
+хранилище» для приложения в Android, либо удалите приложение целиком.</p>
+
+<h2>Дети</h2>
+<p>Lexirion не рассчитан на детей и намеренно не собирает данные о детях.</p>
+
+<h2>Изменения политики</h2>
+<p>При изменении политики обновлённая версия будет опубликована по этому же адресу с новой
+датой обновления.</p>
+
+<h2>Контакты</h2>
+<p>Вопросы по политике: <a href="mailto:artem.hudojnik@gmail.com">artem.hudojnik@gmail.com</a></p>
+
+<footer>Lexirion</footer>
+
+</body>
+</html>
