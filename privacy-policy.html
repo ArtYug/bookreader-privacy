@@ -25,7 +25,7 @@
 <body>
 
 <h1>Lexirion — Privacy Policy</h1>
-<p class="updated">Last updated: 24 August 2026</p>
+<p class="updated">Last updated: 26 August 2026</p>
 
 <p>Lexirion is an e-book reader for Android. It is developed by an individual
 developer and distributed through Google Play. This policy explains what data the
@@ -80,7 +80,12 @@ from that as well and must be entered again.</p>
 <p>When you add a book, Android's system file picker gives the app access to that one
 file only. The app copies it into its own private storage and does not scan, index or
 read anything else on your device. Lexirion requests no storage, location, camera,
-microphone or contacts permissions. Its only permission is <code>INTERNET</code>.</p>
+microphone or contacts permissions — nothing that can reach personal data. The only
+permission the app declares for itself is <code>INTERNET</code>. The libraries it is built
+on add two technical ones: <code>ACCESS_NETWORK_STATE</code>, to tell whether the device is
+online, and <code>WAKE_LOCK</code>, so reading aloud keeps playing when the screen turns
+off. Android grants all of these automatically, without asking you, because none of them
+open access to anything personal.</p>
 
 <h2>Data sent over the network</h2>
 
@@ -136,6 +141,11 @@ enter your own Google Gemini API key in Settings. When you select a passage and 
 <p>Lexirion does not transmit your library contents, the books you read, your reading
 positions, bookmarks, notes, or any device or advertising identifier — to the developer
 or to anyone else. There is no telemetry and no crash-reporting service in the app.</p>
+<p>If the app crashes, it writes the technical details — app version, device model, Android
+version and the error trace — to a file in its own private storage, and offers to send them
+the next time you open Settings. Nothing leaves the device unless you tap that: the report
+opens as a draft in your own mail app, where you can read the whole text and decide whether
+to send it. If you do not, it stays on the device until the next crash overwrites it.</p>
 
 <h2>Children</h2>
 <p>Lexirion is not directed at children under 13 and collects no personal information
@@ -162,7 +172,7 @@ date at the top.</p>
 <div class="lang">
 
 <h1>Lexirion — Политика конфиденциальности</h1>
-<p class="updated">Обновлено: 24 августа 2026</p>
+<p class="updated">Обновлено: 26 августа 2026</p>
 
 <p>Lexirion — читалка электронных книг для Android. Приложение разрабатывает частный
 разработчик, распространяется оно через Google Play. Ниже — что приложение делает с данными,
@@ -216,8 +226,12 @@ date at the top.</p>
 <p>Когда вы добавляете книгу, системный выбор файлов Android даёт приложению доступ только к
 этому одному файлу. Приложение копирует его в своё приватное хранилище и не сканирует,
 не индексирует и не читает ничего другого на устройстве. Lexirion не запрашивает доступа
-к хранилищу, геолокации, камере, микрофону или контактам. Единственное его разрешение —
-<code>INTERNET</code>.</p>
+к хранилищу, геолокации, камере, микрофону или контактам — ничего, чем можно дотянуться до
+личных данных. Единственное разрешение, которое приложение объявляет само, —
+<code>INTERNET</code>. Библиотеки, на которых оно построено, добавляют два технических:
+<code>ACCESS_NETWORK_STATE</code>, чтобы понимать, есть ли сеть, и <code>WAKE_LOCK</code>,
+чтобы чтение вслух не прерывалось при погасшем экране. Все они выдаются системой
+автоматически, без вопроса к вам, и доступа к личному не открывают.</p>
 
 <h2>Данные, уходящие в сеть</h2>
 
@@ -272,6 +286,12 @@ date at the top.</p>
 <p>Lexirion не передаёт ни разработчику, ни кому-либо ещё содержимое вашей библиотеки, список
 читаемых книг, прогресс чтения, закладки, заметки, идентификаторы устройства или рекламные
 идентификаторы. Ни телеметрии, ни службы отчётов о сбоях в приложении нет.</p>
+<p>Если приложение упало, оно записывает технические подробности — версию приложения, модель
+устройства, версию Android и стек ошибки — в файл в своём приватном хранилище и при следующем
+заходе в настройки предлагает их отправить. С устройства не уходит ничего, пока вы этого не
+нажмёте: отчёт открывается черновиком письма в вашей же почте, где виден весь текст, и
+отправлять его или нет — решаете вы. Если не отправить, он лежит на устройстве до следующего
+падения, которое его перезапишет.</p>
 
 <h2>Дети</h2>
 <p>Lexirion не адресован детям младше 13 лет и ни у кого не собирает персональных данных.
