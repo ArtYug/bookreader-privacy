@@ -82,9 +82,10 @@ are included in a direct device-to-device transfer when you set up a new phone; 
 key and catalogue passwords are excluded from that as well and must be entered again.</p>
 
 <h3>Files you open</h3>
-<p>When you add a book, Android's system file picker gives the app access to that one
-file only. The app copies it into its own private storage and does not scan, index or
-read anything else on your device. Lexirion requests no storage, location, camera,
+<p>When you add a book, Android's system picker gives the app access to that one file
+only; when you add a folder of books, to that one folder and the folders inside it. The
+app does not ask to keep that access. It copies the books into its own private storage
+and does not scan, index or read anything else on your device. Lexirion requests no storage, location, camera,
 microphone or contacts permissions — nothing that can reach personal data. For itself
 the app declares <code>INTERNET</code> and three permissions for reading aloud:
 <code>FOREGROUND_SERVICE</code> and <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code>, so
@@ -152,6 +153,14 @@ enter your own Google Gemini API key in Settings. When you select a passage and 
       not stored.</li>
 </ul>
 <p>If you remove the key from Settings, the feature stops sending anything.</p>
+<p>The <em>Definition</em> action on a selected word first hands the word to a dictionary
+app on your device. Only if there is none and you have added a key does it offer to ask
+Gemini instead: then the word, at most 100 characters, is sent to Google's Gemini API in
+the same way, and only when you tap <em>Define</em> in that window.</p>
+<p><em>Translate</em>, <em>Ask AI</em> and <em>Definition</em> can hand the selected text to
+another app installed on your device, chosen by you or by Android. That app handles it
+under its own privacy policy; handing it over sends nothing over the network from
+Lexirion.</p>
 
 <h3>What is never sent</h3>
 <p>Lexirion does not transmit your library contents, the books you read, your reading
@@ -246,9 +255,10 @@ date at the top.</p>
 телефон; ключ и пароли к каталогам исключены и оттуда — их нужно ввести заново.</p>
 
 <h3>Файлы, которые вы открываете</h3>
-<p>Когда вы добавляете книгу, системный выбор файлов Android даёт приложению доступ только к
-этому одному файлу. Приложение копирует его в своё приватное хранилище и не сканирует,
-не индексирует и не читает ничего другого на устройстве. Lexirion не запрашивает доступа
+<p>Когда вы добавляете книгу, системный выбор Android даёт приложению доступ только к этому
+одному файлу, а когда добавляете папку с книгами — только к этой папке и вложенным в неё.
+Сохранять этот доступ приложение не просит. Книги оно копирует в своё приватное хранилище и
+не сканирует, не индексирует и не читает ничего другого на устройстве. Lexirion не запрашивает доступа
 к хранилищу, геолокации, камере, микрофону или контактам — ничего, чем можно дотянуться до
 личных данных. Само приложение объявляет <code>INTERNET</code> и три разрешения ради чтения
 вслух: <code>FOREGROUND_SERVICE</code> и <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code>, чтобы
@@ -314,6 +324,13 @@ date at the top.</p>
       сохраняется.</li>
 </ul>
 <p>Если убрать ключ из настроек, функция перестаёт отправлять что-либо.</p>
+<p>Действие «Определение» на выделенном слове сначала отдаёт слово словарю на вашем
+устройстве. Только если словаря нет и ключ заведён, оно предлагает спросить Gemini: тогда
+слово, не длиннее 100 символов, уходит в Gemini API от Google так же, как отрывок, и только
+когда вы нажмёте «Определить» в этом окне.</p>
+<p>«Перевести», «Спросить ИИ» и «Определение» могут передать выделенный текст другому
+приложению на вашем устройстве — тому, что выберете вы или Android. Дальше им распоряжается
+это приложение по своей политике; сама передача ничего не отправляет из Lexirion в сеть.</p>
 
 <h3>Чего не уходит никогда</h3>
 <p>Lexirion не передаёт ни разработчику, ни кому-либо ещё содержимое вашей библиотеки, список
