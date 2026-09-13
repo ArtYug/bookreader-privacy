@@ -25,7 +25,7 @@
 <body>
 
 <h1>Lexirion — Privacy Policy</h1>
-<p class="updated">Last updated: 26 August 2026</p>
+<p class="updated">Last updated: 13 September 2026</p>
 
 <p>Lexirion is an e-book reader for Android. It is developed by an individual
 developer and distributed through Google Play. This policy explains what data the
@@ -64,6 +64,11 @@ app handles, where that data goes, and what it never does.</p>
     <td>Local preferences on the device</td>
     <td>To authenticate your own requests to Google's Gemini API</td>
   </tr>
+  <tr>
+    <td>Username and password for a custom OPDS catalogue, if you enter them</td>
+    <td>Local preferences on the device, encrypted with a key held in the Android Keystore</td>
+    <td>To sign in to that catalogue</td>
+  </tr>
 </table>
 
 <p>None of this is transmitted to the developer. Uninstalling the app removes all of it.</p>
@@ -71,10 +76,10 @@ app handles, where that data goes, and what it never does.</p>
 <h3>Backups</h3>
 <p>If Android backup is enabled on your device, your reading progress, bookmarks, notes
 and settings may be included in your own Google Drive backup, under your Google account
-and subject to Google's terms. Book files, cover images and your Gemini API key are
-explicitly <strong>excluded</strong> from cloud backup. Book files are included in a
-direct device-to-device transfer when you set up a new phone; the API key is excluded
-from that as well and must be entered again.</p>
+and subject to Google's terms. Book files, cover images, your Gemini API key and
+catalogue passwords are explicitly <strong>excluded</strong> from cloud backup. Book files
+are included in a direct device-to-device transfer when you set up a new phone; the API
+key and catalogue passwords are excluded from that as well and must be entered again.</p>
 
 <h3>Files you open</h3>
 <p>When you add a book, Android's system file picker gives the app access to that one
@@ -118,6 +123,12 @@ speaks the format. None are added by default.</p>
       that address, plus the same technical information any web request carries.</li>
   <li>The address is not known to the developer in advance — you choose it, and the app
       does not suggest or bundle any third-party OPDS servers.</li>
+  <li>If the catalogue needs a username and password, you enter them when adding it. They
+      are stored only on your device, encrypted with a key held in the Android Keystore,
+      are excluded from backups and from device-to-device transfer, and are sent only to
+      that catalogue's own address — the same scheme, host and port — over HTTPS. The
+      developer never receives them. Uninstalling the app or clearing its storage erases
+      them.</li>
   <li>Remove a catalogue in Settings at any time to stop any request to it.</li>
 </ul>
 
@@ -172,7 +183,7 @@ date at the top.</p>
 <div class="lang">
 
 <h1>Lexirion — Политика конфиденциальности</h1>
-<p class="updated">Обновлено: 26 августа 2026</p>
+<p class="updated">Обновлено: 13 сентября 2026</p>
 
 <p>Lexirion — читалка электронных книг для Android. Приложение разрабатывает частный
 разработчик, распространяется оно через Google Play. Ниже — что приложение делает с данными,
@@ -211,6 +222,11 @@ date at the top.</p>
     <td>Локальные настройки на устройстве</td>
     <td>Чтобы подписывать ваши собственные запросы к Gemini API</td>
   </tr>
+  <tr>
+    <td>Имя и пароль к своему каталогу OPDS, если вы их ввели</td>
+    <td>Локальные настройки на устройстве, в зашифрованном виде — ключом из хранилища ключей Android</td>
+    <td>Чтобы входить в этот каталог</td>
+  </tr>
 </table>
 
 <p>Ничего из этого разработчику не передаётся. Удаление приложения стирает всё это вместе с ним.</p>
@@ -218,9 +234,9 @@ date at the top.</p>
 <h3>Резервные копии</h3>
 <p>Если на устройстве включено резервное копирование Android, прогресс чтения, закладки,
 заметки и настройки могут попасть в вашу же копию в Google Drive — под вашей учётной записью
-и по правилам Google. Файлы книг, обложки и ключ Gemini из облачной копии
-<strong>исключены</strong>. Файлы книг переносятся при прямом переносе с телефона на телефон;
-ключ исключён и оттуда — его нужно ввести заново.</p>
+и по правилам Google. Файлы книг, обложки, ключ Gemini и пароли к каталогам из облачной
+копии <strong>исключены</strong>. Файлы книг переносятся при прямом переносе с телефона на
+телефон; ключ и пароли к каталогам исключены и оттуда — их нужно ввести заново.</p>
 
 <h3>Файлы, которые вы открываете</h3>
 <p>Когда вы добавляете книгу, системный выбор файлов Android даёт приложению доступ только к
@@ -263,6 +279,11 @@ date at the top.</p>
       на этот адрес, плюс то же самое, что несёт любой веб-запрос.</li>
   <li>Разработчик заранее этот адрес не знает — его выбираете вы, приложение само не
       предлагает и не встраивает никаких сторонних OPDS-серверов.</li>
+  <li>Если каталог требует имя и пароль, вы вводите их при добавлении. Они хранятся только
+      на устройстве, в зашифрованном виде — ключом из хранилища ключей Android, не попадают
+      ни в резервную копию, ни в перенос на новое устройство и отправляются только на адрес
+      самого каталога — ту же схему, узел и порт — по HTTPS. Разработчик их не получает
+      никогда. Удаление приложения или очистка его данных стирает их.</li>
   <li>Удалить каталог в настройках можно в любой момент — тогда запросы к нему прекращаются.</li>
 </ul>
 
