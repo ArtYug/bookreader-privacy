@@ -45,7 +45,7 @@ app handles, where that data goes, and what it never does.</p>
 <table>
   <tr><th>What</th><th>Where</th><th>Why</th></tr>
   <tr>
-    <td>EPUB and PDF files you add or download, and cover images extracted from them</td>
+    <td>Book files you add or download, and cover images extracted from them</td>
     <td>App-private storage on the device</td>
     <td>So the books can be opened offline</td>
   </tr>
@@ -85,12 +85,17 @@ key and catalogue passwords are excluded from that as well and must be entered a
 <p>When you add a book, Android's system file picker gives the app access to that one
 file only. The app copies it into its own private storage and does not scan, index or
 read anything else on your device. Lexirion requests no storage, location, camera,
-microphone or contacts permissions — nothing that can reach personal data. The only
-permission the app declares for itself is <code>INTERNET</code>. The libraries it is built
-on add two technical ones: <code>ACCESS_NETWORK_STATE</code>, to tell whether the device is
-online, and <code>WAKE_LOCK</code>, so reading aloud keeps playing when the screen turns
-off. Android grants all of these automatically, without asking you, because none of them
-open access to anything personal.</p>
+microphone or contacts permissions — nothing that can reach personal data. For itself
+the app declares <code>INTERNET</code> and three permissions for reading aloud:
+<code>FOREGROUND_SERVICE</code> and <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code>, so
+reading continues when you switch to another app, and <code>POST_NOTIFICATIONS</code>, for
+the notification with the pause button. The libraries it is built on add
+<code>ACCESS_NETWORK_STATE</code>, to tell whether the device is online,
+<code>WAKE_LOCK</code>, so reading aloud keeps playing when the screen turns off, and a
+signature-level permission of the app's own that no other app can hold. On Android 13 and
+newer, Android asks you about notifications once, the first time you start reading aloud;
+if you decline, reading aloud still works, just without the notification. All the others
+are granted automatically, and none of them opens access to anything personal.</p>
 
 <h2>Data sent over the network</h2>
 
@@ -203,7 +208,7 @@ date at the top.</p>
 <table>
   <tr><th>Что</th><th>Где</th><th>Зачем</th></tr>
   <tr>
-    <td>Файлы EPUB и PDF, добавленные или скачанные вами, и обложки, извлечённые из них</td>
+    <td>Файлы книг, добавленные или скачанные вами, и обложки, извлечённые из них</td>
     <td>Приватное хранилище приложения</td>
     <td>Чтобы книги открывались без сети</td>
   </tr>
@@ -243,11 +248,16 @@ date at the top.</p>
 этому одному файлу. Приложение копирует его в своё приватное хранилище и не сканирует,
 не индексирует и не читает ничего другого на устройстве. Lexirion не запрашивает доступа
 к хранилищу, геолокации, камере, микрофону или контактам — ничего, чем можно дотянуться до
-личных данных. Единственное разрешение, которое приложение объявляет само, —
-<code>INTERNET</code>. Библиотеки, на которых оно построено, добавляют два технических:
-<code>ACCESS_NETWORK_STATE</code>, чтобы понимать, есть ли сеть, и <code>WAKE_LOCK</code>,
-чтобы чтение вслух не прерывалось при погасшем экране. Все они выдаются системой
-автоматически, без вопроса к вам, и доступа к личному не открывают.</p>
+личных данных. Само приложение объявляет <code>INTERNET</code> и три разрешения ради чтения
+вслух: <code>FOREGROUND_SERVICE</code> и <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code>, чтобы
+чтение продолжалось, когда вы переключились на другое приложение, и
+<code>POST_NOTIFICATIONS</code> — для уведомления с кнопкой паузы. Библиотеки, на которых оно
+построено, добавляют <code>ACCESS_NETWORK_STATE</code>, чтобы понимать, есть ли сеть,
+<code>WAKE_LOCK</code>, чтобы чтение вслух не прерывалось при погасшем экране, и собственное
+разрешение приложения уровня signature, которое не может получить никакое другое приложение.
+Про уведомления Android 13 и новее спросит вас один раз — когда вы впервые включите чтение
+вслух; если отказаться, чтение вслух работает, просто без уведомления. Остальные разрешения
+выдаются автоматически и доступа к личному не открывают.</p>
 
 <h2>Данные, уходящие в сеть</h2>
 
