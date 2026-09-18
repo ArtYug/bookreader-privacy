@@ -35,10 +35,12 @@ app handles, where that data goes, and what it never does.</p>
 <ul>
   <li>Lexirion has <strong>no accounts, no sign-in, and no analytics or advertising SDKs</strong>.</li>
   <li>Your books, reading positions, bookmarks and notes stay <strong>on your device</strong>.</li>
-  <li>The developer <strong>does not operate any server</strong> and never receives your data.</li>
+  <li>The developer <strong>runs no server of their own</strong> and cannot see what you read
+      or ask.</li>
   <li>Network requests go only to the public catalogues you browse, any catalogue
-      address you add yourself, and — only if you configure it yourself — to Google's
-      Gemini API with your own API key.</li>
+      address you add yourself, and — only when you ask a question about a book — to
+      Google's Gemini: with your own API key, or, for a few free questions a day, through
+      the developer's Google Firebase project.</li>
 </ul>
 
 <h2>Data stored on your device</h2>
@@ -144,12 +146,23 @@ speaks the format. None are added by default.</p>
   <li>Remove a catalogue in Settings at any time to stop any request to it.</li>
 </ul>
 
-<h3>3. Ask about a passage (optional, off by default)</h3>
-<p>The reader has an optional <em>Ask</em> action on selected text. It does nothing until
-you enter your own Google Gemini API key — in Settings or in the Ask sheet itself. When you
-select a passage, tap <em>Ask</em> and choose one of the ready questions or type your own:</p>
+<h3>3. Ask about a passage (optional; nothing is sent until you ask)</h3>
+<p>The reader has an optional <em>Ask</em> action: on selected text, or, from the bottom
+panel, about the story so far. Opening the Ask sheet sends nothing. A request is made only
+when you choose one of the ready questions or send your own, and it reaches Google's Gemini
+in one of two ways:</p>
 <ul>
-  <li>Sent from your device directly to Google's Gemini API, authenticated with your key:
+  <li><strong>With your own Google Gemini API key</strong>, entered in Settings or in the Ask
+      sheet: the request goes from your device directly to Google's Gemini API,
+      authenticated with your key.</li>
+  <li><strong>Without a key</strong>, a limited number of questions a day is free (20 at the
+      time of writing): the same request goes to Gemini through Firebase AI Logic, a Google
+      service, in the developer's Firebase project and at the developer's expense. How
+      many of today's free questions you have used is counted on your device only.</li>
+</ul>
+<p>Either way, this is what the request contains:</p>
+<ul>
+  <li>The request itself:
       the selected passage (at most 2000 characters); a little of the text just before it
       (at most 1500 characters); the book's title and author, the title of the current
       chapter and how far into the book you are; the language your device is set to, so
@@ -158,20 +171,39 @@ select a passage, tap <em>Ask</em> and choose one of the ready questions or type
   <li><em>What led up to this?</em> sends, instead of the text just before the passage, the
       text of the current chapter from its start to your reading position (at most 12 000
       characters) — never anything past where you are, and never other chapters.</li>
-  <li>The request goes to Google, not to the developer. Google's handling of it is governed
-      by the <a href="https://ai.google.dev/gemini-api/terms">Gemini API terms</a> and
-      Google's privacy policy for the account that issued the key.</li>
-  <li>Nothing else is sent: not the book file, not your library, not your identity.</li>
+  <li>The request goes to Google, not to the developer. With your own key, Google's handling
+      of it is governed by the <a href="https://ai.google.dev/gemini-api/terms">Gemini API
+      terms</a> and Google's privacy policy for the account that issued the key. Without a
+      key, Google processes it for the developer under the same terms as a paid service:
+      Google states there that it does not use such requests or answers to improve its
+      products and keeps them for a limited time only to detect abuse. The developer does
+      not log, store or read the passages, questions or answers.</li>
+  <li>Nothing else about you is sent: not the book file, not your library, not your
+      identity.</li>
+  <li>Without a key, three more things happen, all of them only when you ask. The first
+      time, Google's Firebase software in the app creates a random <em>Firebase
+      installation ID</em>; it identifies this installation of the app — not you, not your
+      device, and it is not an advertising identifier — and it is sent to Google's Firebase
+      services along with your questions. The app asks Firebase Remote Config for two
+      settings: whether the free questions are currently on and how many a day are
+      allowed. And the app asks Google Play (Play Integrity, through Firebase App Check)
+      to confirm that the request comes from a genuine copy of Lexirion on a genuine
+      device; that confirmation is attached to the request. It is there to keep scripts
+      from spending the free questions. Clearing the app's storage or uninstalling it
+      erases the installation ID from your device, and Google deletes it on its side once
+      it is no longer in use.</li>
   <li>Answers are generated by an AI model and can be wrong. They stay in the sheet until
       you close it and are not stored. <em>Report this answer</em> opens a draft email to
       the developer with the passage and the answer; nothing leaves the device unless you
       send it.</li>
 </ul>
-<p>If you remove the key from Settings, the feature stops sending anything.</p>
+<p>If you never ask a question, none of this happens: the app makes no request to Google
+and no installation ID exists. With your own key in place, questions go directly to Gemini
+and the developer's Firebase project is not contacted at all.</p>
 <p>The <em>Definition</em> action on a selected word first hands the word to a dictionary
-app on your device. Only if there is none and you have added a key does it offer to ask
-Gemini instead: then the word, at most 100 characters, is sent to Google's Gemini API in
-the same way, and only when you tap <em>Define</em> in that sheet.</p>
+app on your device. Only if there is none does it offer to ask Gemini instead: then the
+word, at most 100 characters, is sent in the same way as a passage — with your key or as
+one of the free questions — and only when you tap <em>Define</em> in that sheet.</p>
 <p><em>Translate</em>, <em>Definition</em> and <em>Open in another app</em> in the Ask sheet
 can hand the selected text to another app installed on your device, chosen by you or by
 Android. That app handles it under its own privacy policy; handing it over sends nothing
@@ -180,7 +212,9 @@ over the network from Lexirion.</p>
 <h3>What is never sent</h3>
 <p>Lexirion does not transmit your library contents, the books you read, your reading
 positions, bookmarks, notes, or any device or advertising identifier — to the developer
-or to anyone else. There is no telemetry and no crash-reporting service in the app.</p>
+or to anyone else. The one identifier the app can have is the Firebase installation ID
+described in section 3, and it exists only if you asked a question without your own key.
+There is no telemetry and no crash-reporting service in the app.</p>
 <p>If the app crashes, it writes the technical details — app version, device model, Android
 version and the error trace — to a file in its own private storage, and offers to send them
 the next time you open Settings. Nothing leaves the device unless you tap that: the report
@@ -196,11 +230,15 @@ general audience; the app does not filter their content.</p>
 <ul>
   <li>Delete a book in the app to remove its file, cover, bookmarks and notes.</li>
   <li>Clear the Gemini API key field in Settings to remove the key from the device.</li>
+  <li>Add your own Gemini API key to keep your questions away from the developer's Firebase
+      project altogether, or simply do not ask without one.</li>
   <li>Remove a custom catalogue in Settings to erase its address and, if you entered them, its
       username and password from the device.</li>
   <li>Uninstall the app, or use Android's <em>Clear storage</em>, to erase everything it holds.</li>
-  <li>Because the developer holds no data about you, there is nothing to request or delete
-      on the developer's side.</li>
+  <li>The developer holds no data about you. If you asked without your own key, Google keeps
+      the random installation ID in the developer's Firebase project until it falls out of
+      use; it is not linked to your name, account or device, and you can write to the
+      address below if you want to know more.</li>
 </ul>
 
 <h2>Changes</h2>
@@ -224,10 +262,12 @@ date at the top.</p>
 <ul>
   <li>В Lexirion <strong>нет учётных записей, входа, аналитики и рекламных SDK</strong>.</li>
   <li>Книги, прогресс чтения, закладки и заметки остаются <strong>на устройстве</strong>.</li>
-  <li>У разработчика <strong>нет сервера</strong>, и он не получает ваших данных.</li>
+  <li>У разработчика <strong>нет своего сервера</strong>, и он не видит, что вы читаете и о
+      чём спрашиваете.</li>
   <li>Сеть используется только для публичных каталогов, которые вы открываете сами, для
-      адреса каталога, который вы добавили сами, и — если вы настроите это сами — для
-      запросов к Gemini API вашим собственным ключом.</li>
+      адреса каталога, который вы добавили сами, и — только когда вы задаёте вопрос о
+      книге — для запросов к Gemini от Google: вашим собственным ключом или, для
+      нескольких бесплатных вопросов в сутки, через проект Google Firebase разработчика.</li>
 </ul>
 
 <h2>Данные на устройстве</h2>
@@ -330,13 +370,23 @@ date at the top.</p>
   <li>Удалить каталог в настройках можно в любой момент — тогда запросы к нему прекращаются.</li>
 </ul>
 
-<h3>3. «Спросить» об отрывке (по желанию, по умолчанию выключено)</h3>
-<p>В читалке есть необязательное действие «Спросить» на выделенном тексте. Оно не делает
-ничего, пока вы не введёте свой ключ Google Gemini API — в настройках или прямо в листе
-«Спросить». Когда вы выделяете отрывок, нажимаете «Спросить» и выбираете один из готовых
-вопросов или задаёте свой:</p>
+<h3>3. «Спросить» об отрывке (по желанию; пока вы не спросили, ничего не уходит)</h3>
+<p>В читалке есть необязательное действие «Спросить»: на выделенном тексте или, с нижней
+панели, о прочитанном. Открытый лист «Спросить» ничего не отправляет. Запрос уходит, только
+когда вы выбираете один из готовых вопросов или отправляете свой, и попадает в Gemini от
+Google одним из двух путей:</p>
 <ul>
-  <li>С вашего устройства напрямую в Gemini API от Google, подписанные вашим ключом, уходят:
+  <li><strong>Со своим ключом Google Gemini API</strong>, введённым в настройках или прямо в
+      листе «Спросить»: запрос идёт с вашего устройства напрямую в Gemini API от Google,
+      подписанный вашим ключом.</li>
+  <li><strong>Без ключа</strong> ограниченное число вопросов в сутки бесплатно (на день
+      написания — 20): тот же запрос идёт в Gemini через Firebase AI Logic, службу Google,
+      в проекте Firebase разработчика и за его счёт. Сколько бесплатных вопросов вы
+      сегодня задали, считается только на вашем устройстве.</li>
+</ul>
+<p>В обоих случаях в запросе вот что:</p>
+<ul>
+  <li>Сам запрос:
       выделенный отрывок (не более 2000 символов); немного текста перед ним (не более 1500
       символов); название и автор книги, название текущей главы и доля прочитанного; язык
       вашего устройства, чтобы ответ пришёл на нём; и вопросы с ответами, уже показанные в
@@ -344,20 +394,37 @@ date at the top.</p>
   <li>«Что было раньше?» вместо текста перед отрывком отправляет текст текущей главы от её
       начала до места чтения (не более 12 000 символов) — никогда ничего дальше этого места
       и никогда другие главы.</li>
-  <li>Запрос идёт к Google, а не к разработчику. Как Google с ним обходится, определяют
-      <a href="https://ai.google.dev/gemini-api/terms">условия Gemini API</a> и политика
-      конфиденциальности учётной записи, которой выдан ключ.</li>
-  <li>Больше не уходит ничего: ни файл книги, ни библиотека, ни ваша личность.</li>
+  <li>Запрос идёт к Google, а не к разработчику. Со своим ключом то, как Google с ним
+      обходится, определяют <a href="https://ai.google.dev/gemini-api/terms">условия Gemini
+      API</a> и политика конфиденциальности учётной записи, которой выдан ключ. Без ключа
+      Google обрабатывает его для разработчика по тем же условиям как платную услугу: там
+      сказано, что такие запросы и ответы Google не использует для улучшения своих
+      продуктов и хранит ограниченное время только ради выявления злоупотреблений.
+      Разработчик отрывков, вопросов и ответов не записывает, не хранит и не читает.</li>
+  <li>Больше о вас не уходит ничего: ни файл книги, ни библиотека, ни ваша личность.</li>
+  <li>Без ключа происходит ещё три вещи, и все — только в момент вопроса. В первый раз
+      программа Google Firebase в приложении заводит случайный <em>идентификатор установки
+      Firebase</em>; он обозначает эту установку приложения — не вас и не устройство, и это
+      не рекламный идентификатор — и уходит в службы Google Firebase вместе с вопросами.
+      Приложение спрашивает у Firebase Remote Config два параметра: включены ли сейчас
+      бесплатные вопросы и сколько их положено в сутки. И приложение просит Google Play
+      (Play Integrity, через Firebase App Check) подтвердить, что запрос идёт от настоящей
+      копии Lexirion на настоящем устройстве; это подтверждение прикладывается к запросу.
+      Нужно оно, чтобы бесплатные вопросы не тратили чужие скрипты. «Очистить хранилище»
+      или удаление приложения стирают идентификатор установки с устройства, а на своей
+      стороне Google удаляет его, когда им перестают пользоваться.</li>
   <li>Ответ создаётся моделью ИИ и может быть неточным. Он остаётся в листе, пока вы его не
       закроете, и нигде не сохраняется. «Пожаловаться на ответ» открывает черновик письма
       разработчику с отрывком и ответом; с устройства ничего не уходит, пока вы его не
       отправите.</li>
 </ul>
-<p>Если убрать ключ из настроек, функция перестаёт отправлять что-либо.</p>
+<p>Если вы ни разу не спросили, ничего из этого не происходит: приложение не обращается к
+Google, и идентификатора установки не существует. Со своим ключом вопросы идут напрямую в
+Gemini, и к проекту Firebase разработчика приложение не обращается вовсе.</p>
 <p>Действие «Определение» на выделенном слове сначала отдаёт слово словарю на вашем
-устройстве. Только если словаря нет и ключ заведён, оно предлагает спросить Gemini: тогда
-слово, не длиннее 100 символов, уходит в Gemini API от Google так же, как отрывок, и только
-когда вы нажмёте «Определить» в этом листе.</p>
+устройстве. Только если словаря нет, оно предлагает спросить Gemini: тогда слово, не
+длиннее 100 символов, уходит так же, как отрывок, — вашим ключом или одним из бесплатных
+вопросов — и только когда вы нажмёте «Определить» в этом листе.</p>
 <p>«Перевести», «Определение» и «Открыть в другом приложении» в листе «Спросить» могут
 передать выделенный текст другому приложению на вашем устройстве — тому, что выберете вы
 или Android. Дальше им распоряжается это приложение по своей политике; сама передача ничего
@@ -366,7 +433,9 @@ date at the top.</p>
 <h3>Чего не уходит никогда</h3>
 <p>Lexirion не передаёт ни разработчику, ни кому-либо ещё содержимое вашей библиотеки, список
 читаемых книг, прогресс чтения, закладки, заметки, идентификаторы устройства или рекламные
-идентификаторы. Ни телеметрии, ни службы отчётов о сбоях в приложении нет.</p>
+идентификаторы. Единственный идентификатор, который у приложения может быть, — идентификатор
+установки Firebase из раздела 3, и появляется он, только если вы задали вопрос без своего
+ключа. Ни телеметрии, ни службы отчётов о сбоях в приложении нет.</p>
 <p>Если приложение упало, оно записывает технические подробности — версию приложения, модель
 устройства, версию Android и стек ошибки — в файл в своём приватном хранилище и при следующем
 заходе в настройки предлагает их отправить. С устройства не уходит ничего, пока вы этого не
@@ -383,11 +452,15 @@ date at the top.</p>
 <ul>
   <li>Удалить книгу в приложении — вместе с файлом, обложкой, закладками и заметками.</li>
   <li>Очистить поле ключа Gemini в настройках — ключ пропадёт с устройства.</li>
+  <li>Завести свой ключ Gemini — тогда вопросы вовсе не идут через проект Firebase
+      разработчика; или просто не спрашивать без ключа.</li>
   <li>Удалить свой каталог в настройках — с устройства сотрутся его адрес и, если вы их вводили,
       имя и пароль.</li>
   <li>Удалить приложение или нажать «Очистить хранилище» в Android — сотрётся всё.</li>
-  <li>Поскольку у разработчика ваших данных нет, запрашивать или удалять на его стороне
-      нечего.</li>
+  <li>Ваших данных у разработчика нет. Если вы спрашивали без своего ключа, Google хранит
+      случайный идентификатор установки в проекте Firebase разработчика, пока им
+      пользуются; он не связан ни с именем, ни с учётной записью, ни с устройством, а
+      подробности можно спросить по адресу ниже.</li>
 </ul>
 
 <h2>Изменения</h2>
