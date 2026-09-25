@@ -27,8 +27,9 @@
 <h1>Lexirion — Privacy Policy</h1>
 <p class="updated">Last updated: 25 September 2026</p>
 
-<p>Lexirion is an e-book reader for Android. It is developed by an individual
-developer and distributed through Google Play. This policy explains what data the
+<p>Lexirion is an e-book reader for Android. It is developed and published by
+<strong>ArTYug</strong> (Artem Yugay), the developer named on the app's Google Play
+listing, and distributed through Google Play. This policy explains what data the
 app handles, where that data goes, and what it never does.</p>
 
 <h2>Short version</h2>
@@ -89,9 +90,11 @@ only; when you add a folder of books, to that one folder and the folders inside 
 folder, the app asks Android to keep that access, for reading only, so that books you put
 into it later are added the next time the app starts. Such folders are listed in Settings
 under <em>Folders with books</em>, and <em>Stop following</em> gives the access back; the
-list stays on your device and is left out of backups and device transfers. The app copies
-the books into its own private storage and does not scan, index or read anything else on
-your device. Lexirion requests no storage, location, camera, microphone or contacts
+list stays on your device and is left out of backups and device transfers. EPUB, PDF and CBZ files are
+opened where they are, and the app keeps read-only access to that one file so the book opens
+again later; books in other formats are converted and kept in the app's own private storage.
+Removing a book from the shelf gives that access back. The app does not scan, index or read
+anything else on your device. Lexirion requests no storage, location, camera, microphone or contacts
 permissions — nothing that can reach personal data. For itself the app declares
 <code>INTERNET</code>; <code>FOREGROUND_SERVICE</code> and
 <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code>, so reading aloud continues when you switch
@@ -168,9 +171,10 @@ in one of two ways:</p>
       chapter and how far into the book you are; the language your device is set to, so
       the answer comes in it; and the questions and answers already shown in that sheet, so
       that a follow-up question makes sense.</li>
-  <li><em>What led up to this?</em> sends, instead of the text just before the passage, the
-      text of the current chapter from its start to your reading position (at most 12 000
-      characters) — never anything past where you are, and never other chapters.</li>
+  <li><em>Who is this?</em>, <em>What led up to this?</em> and the first question about the
+      story so far send, instead of the text just before the passage, the text of the current
+      chapter from its start to your reading position (at most 12 000 characters) — never
+      anything past where you are, and never other chapters.</li>
   <li>The request goes to Google, not to the developer. With your own key, Google's handling
       of it is governed by the <a href="https://ai.google.dev/gemini-api/terms">Gemini API
       terms</a> and Google's privacy policy for the account that issued the key. Without a
@@ -254,8 +258,9 @@ date at the top.</p>
 <h1>Lexirion — Политика конфиденциальности</h1>
 <p class="updated">Обновлено: 25 сентября 2026</p>
 
-<p>Lexirion — читалка электронных книг для Android. Приложение разрабатывает частный
-разработчик, распространяется оно через Google Play. Ниже — что приложение делает с данными,
+<p>Lexirion — читалка электронных книг для Android. Приложение разрабатывает и публикует
+<strong>ArTYug</strong> (Artem Yugay) — тот же разработчик, что назван в карточке Google Play;
+распространяется оно через Google Play. Ниже — что приложение делает с данными,
 куда они уходят и чего оно не делает никогда.</p>
 
 <h2>Коротко</h2>
@@ -316,8 +321,11 @@ date at the top.</p>
 вы положите в неё позже, добавятся при следующем запуске приложения. Такие папки перечислены
 в настройках, в разделе <em>Папки с книгами</em>, и <em>Не следить</em> возвращает доступ;
 список остаётся на устройстве и не входит ни в резервную копию, ни в перенос на новый
-телефон. Книги приложение копирует в своё приватное хранилище и не сканирует, не индексирует
-и не читает ничего другого на устройстве. Lexirion не запрашивает доступа к хранилищу,
+телефон. Файлы EPUB, PDF и CBZ приложение открывает на месте и сохраняет
+доступ к этому одному файлу — только на чтение, чтобы книга открывалась и потом; книги других
+форматов оно преобразует и держит в своём приватном хранилище. Удаление книги с полки
+возвращает этот доступ. Ничего другого на устройстве приложение не сканирует, не индексирует
+и не читает. Lexirion не запрашивает доступа к хранилищу,
 геолокации, камере, микрофону или контактам — ничего, чем можно дотянуться до личных данных.
 Само приложение объявляет <code>INTERNET</code>; <code>FOREGROUND_SERVICE</code> и
 <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code>, чтобы чтение вслух продолжалось, когда вы
@@ -391,9 +399,9 @@ Google одним из двух путей:</p>
       символов); название и автор книги, название текущей главы и доля прочитанного; язык
       вашего устройства, чтобы ответ пришёл на нём; и вопросы с ответами, уже показанные в
       этом листе, чтобы уточняющий вопрос был понятен.</li>
-  <li>«Что было раньше?» вместо текста перед отрывком отправляет текст текущей главы от её
-      начала до места чтения (не более 12 000 символов) — никогда ничего дальше этого места
-      и никогда другие главы.</li>
+  <li>«Кто это?», «Что было раньше?» и первый вопрос о прочитанном вместо текста перед
+      отрывком отправляют текст текущей главы от её начала до места чтения (не более
+      12 000 символов) — никогда ничего дальше этого места и никогда другие главы.</li>
   <li>Запрос идёт к Google, а не к разработчику. Со своим ключом то, как Google с ним
       обходится, определяют <a href="https://ai.google.dev/gemini-api/terms">условия Gemini
       API</a> и политика конфиденциальности учётной записи, которой выдан ключ. Без ключа
