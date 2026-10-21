@@ -25,7 +25,7 @@
 <body>
 
 <h1>Lexirion — Privacy Policy</h1>
-<p class="updated">Last updated: 10 October 2026</p>
+<p class="updated">Last updated: 21 October 2026</p>
 
 <p>Lexirion is an e-book reader for Android. It is developed and published by
 <strong>ArTYug</strong> (Artem Yugay), the developer named on the app's Google Play
@@ -36,13 +36,16 @@ app handles, where that data goes, and what it never does.</p>
 <ul>
   <li>Lexirion has <strong>no accounts of its own and no analytics or advertising SDKs</strong>.</li>
   <li>Your books, reading positions, bookmarks and notes stay <strong>on your device</strong> —
-      unless you turn on the optional backup to your own Google Drive. That backup holds no
-      book files, and to make it the app asks Google only for permission to manage the files
-      it creates itself; it does not learn your name or email address.</li>
+      unless you turn on the optional backup to your own Google Drive or the optional sync
+      between your devices, which also goes through your own Drive. Neither holds book files,
+      and for them the app asks Google only for permission to manage the files it creates
+      itself and to keep its own data in a hidden folder of your Drive. It does not learn your
+      name; for sync it learns the email address of the account you chose, only to show it in
+      Settings, and keeps it on this device.</li>
   <li>The developer <strong>runs no server of their own</strong> and cannot see what you read
       or ask.</li>
   <li>Network requests go only to the public catalogues you browse, any catalogue
-      address you add yourself, your own Google Drive if you turn the backup on, and —
+      address you add yourself, your own Google Drive if you turn the backup or sync on, and —
       only when you ask a question about a book — to
       Google's Gemini: with your own API key, or, for a few free questions a day, through
       the developer's Google Firebase project.</li>
@@ -278,18 +281,59 @@ that you allowed this, so turning the backup on again later may not ask a second
       app's access back at any time in your Google Account, in the list of third-party apps
       and services.</li>
 </ul>
-<p>If you never turn the backup on, the app makes no request to Google Drive.</p>
+<p>If you never turn the backup on, the app makes no request to Google Drive for it.</p>
+
+<h3>5. Sync between your devices (optional; off until you turn it on)</h3>
+<p>Settings has an optional <em>Sync between your devices</em>. When you turn it on, Google's own
+account sheet asks you to allow Lexirion one more thing: to keep its own data in a
+<strong>hidden app folder</strong> in your Drive (Google calls this permission
+<code>drive.appdata</code>), and to see the email address of that account. Only Lexirion can see
+that folder. The app shows the address in Settings, so that you can tell which account your devices
+sync through, and lets you switch to another account there; the address stays on this device and is
+sent to no one, the developer included. The app still cannot see anything else you keep in Drive,
+and it does not receive your name or your profile picture.</p>
+<ul>
+  <li><strong>What the sync file holds.</strong> For each book that carries an identifier: a code
+      worked out from that identifier — not the title, the author or the file — your reading
+      place, your bookmarks, highlights and notes, each with the passage of the book it marks,
+      and whether you finished the book; and, for each of these, when and on which of your
+      installations it last changed. <strong>Book files are not in it</strong>, and neither are
+      your collections, statistics, covers, your Gemini API key, your catalogue passwords or
+      the app's settings.</li>
+  <li><strong>Where it goes.</strong> From your device straight to Google Drive
+      (<code>www.googleapis.com</code>), as one small file per installation, named
+      <em>lexirion-sync.json</em>, in the hidden app folder. Each of your devices reads the
+      files the others left there. The developer runs no server and never receives these
+      files.</li>
+  <li><strong>When.</strong> The app reads the files of your other devices when it comes to the
+      screen and when you open a book; it writes its own file when you close a book or leave
+      the app, if something changed, and every few weeks even if nothing did, so that your
+      other devices keep seeing it. <em>Sync now</em> does the same at once. This
+      happens on any network, not only Wi-Fi: a reading place that arrives the next day is of
+      no use. In the background the app respects Android's Data Saver.</li>
+  <li><strong>What the file is marked with.</strong> The same as the backup: the model of the
+      device and the random installation ID described in section 4, so that your other
+      devices can tell you on which one you left off.</li>
+  <li><strong>Stopping.</strong> <em>Turn off sync</em> stops all of this. It does not delete the
+      files already in the hidden folder: you can delete them in Google Drive's settings,
+      under <em>Manage apps</em> → Lexirion → <em>Delete hidden app data</em>. <em>Disconnect
+      from Drive</em>, in the same place, takes the app's access back and removes the hidden
+      folder with it.</li>
+</ul>
+<p>If you never turn sync on, the app makes no request to Google Drive for it.</p>
 
 <h3>What is never sent</h3>
 <p>Lexirion does not transmit your library contents, the books you read, your reading
 positions, bookmarks, notes, or any device or advertising identifier to the developer. Nor
-to anyone else, with one exception that is yours to make: the backup in your own Google
-Drive (section 4), which carries the list of your books, your reading positions, bookmarks
-and notes — never the book files — and exists only if you turn it on. The app can have two
+to anyone else, with two exceptions that are yours to make, both in your own Google Drive
+and both only if you turn them on: the backup (section 4), which carries the list of your
+books, your reading positions, bookmarks and notes, and sync (section 5), which carries your
+reading positions, bookmarks and notes without the titles of your books. Neither ever carries
+the book files. The app can have two
 identifiers, both random and both of this installation rather than of you or the device: the
 Firebase installation ID described in section 3, which exists only if you asked a question
-without your own key, and the backup's ID described in section 4, which exists only if you
-turned the backup on.
+without your own key, and the installation ID described in section 4, which exists only if you
+turned the backup or sync on.
 There is no telemetry and no crash-reporting service in the app.</p>
 <p>If the app crashes, it writes the technical details — app version, device model, Android
 version and the error trace — to a file in its own private storage, and offers to send them
@@ -312,8 +356,11 @@ general audience; the app does not filter their content.</p>
       username and password from the device.</li>
   <li>Turn off the backup in Settings to stop it; delete the backup file in your Google Drive
       to erase it; take the app's access to Drive back in your Google Account.</li>
+  <li>Turn off sync in Settings to stop it; delete its files in Google Drive's settings, under
+      Manage apps → Lexirion → Delete hidden app data.</li>
   <li>Uninstall the app, or use Android's <em>Clear storage</em>, to erase everything it holds
-      on the device. A backup in your Drive is not touched by that — it is yours to delete.</li>
+      on the device. A backup or sync files in your Drive are not touched by that — they are
+      yours to delete.</li>
   <li>The developer holds no data about you. If you asked without your own key, Google keeps
       the random installation ID in the developer's Firebase project until it falls out of
       use; it is not linked to your name, account or device, and you can write to the
@@ -331,7 +378,7 @@ date at the top.</p>
 <div class="lang">
 
 <h1>Lexirion — Политика конфиденциальности</h1>
-<p class="updated">Обновлено: 10 октября 2026</p>
+<p class="updated">Обновлено: 21 октября 2026</p>
 
 <p>Lexirion — читалка электронных книг для Android. Приложение разрабатывает и публикует
 <strong>ArTYug</strong> (Artem Yugay) — тот же разработчик, что назван в карточке Google Play;
@@ -342,14 +389,17 @@ date at the top.</p>
 <ul>
   <li>В Lexirion <strong>нет своих учётных записей, аналитики и рекламных SDK</strong>.</li>
   <li>Книги, прогресс чтения, закладки и заметки остаются <strong>на устройстве</strong> — если
-      вы не включили необязательную копию в свой Google Диск. Файлов книг в этой
-      копии нет, а ради неё приложение просит у Google только разрешение управлять файлами,
-      которые создаёт само; вашего имени и адреса почты оно не узнаёт.</li>
+      вы не включили необязательную копию в свой Google Диск или необязательную синхронизацию
+      между устройствами, которая тоже идёт через ваш Диск. Файлов книг нет ни там, ни там, а
+      ради них приложение просит у Google только разрешение управлять файлами, которые создаёт
+      само, и держать свои данные в скрытой папке вашего Диска. Вашего имени оно не узнаёт; ради
+      синхронизации узнаёт адрес почты выбранного аккаунта — только чтобы показать его в
+      настройках — и хранит его на устройстве.</li>
   <li>У разработчика <strong>нет своего сервера</strong>, и он не видит, что вы читаете и о
       чём спрашиваете.</li>
   <li>Сеть используется только для публичных каталогов, которые вы открываете сами, для
       адреса каталога, который вы добавили сами, для вашего Google Диска, если вы включили
-      копию, и — только когда вы задаёте вопрос о
+      копию или синхронизацию, и — только когда вы задаёте вопрос о
       книге — для запросов к Gemini от Google: вашим собственным ключом или, для
       нескольких бесплатных вопросов в сутки, через проект Google Firebase разработчика.</li>
 </ul>
@@ -579,18 +629,57 @@ Google помнит, что вы это разрешили, поэтому пр�
       можно в любой момент отозвать и в аккаунте Google, в списке сторонних приложений и
       сервисов.</li>
 </ul>
-<p>Если копию не включать, к Google Диску приложение не обращается вовсе.</p>
+<p>Если копию не включать, ради неё к Google Диску приложение не обращается вовсе.</p>
+
+<h3>5. Синхронизация между устройствами (по желанию; выключена, пока вы её не включили)</h3>
+<p>В настройках есть необязательная «Синхронизация между устройствами». Когда вы её включаете,
+лист аккаунта самого Google просит разрешить Lexirion ещё одно: держать свои данные в
+<strong>скрытой папке приложения</strong> в вашем Диске (Google называет это разрешение
+<code>drive.appdata</code>) и видеть адрес почты этого аккаунта. Эту папку видит только Lexirion.
+Адрес приложение показывает в настройках — чтобы было видно, через какой аккаунт синхронизируются
+ваши устройства, — и там же позволяет сменить аккаунт; адрес остаётся на устройстве и не
+отправляется никому, в том числе разработчику. Всего остального в вашем Диске приложение
+по-прежнему не видит, а вашего имени и фотографии профиля не получает.</p>
+<ul>
+  <li><strong>Что в файле синхронизации.</strong> Для каждой книги, у которой есть идентификатор:
+      код, вычисленный из этого идентификатора, — не название, не автор и не файл, — место
+      чтения, закладки, выделения и заметки, каждая с отрывком книги, который она отмечает, и
+      отметка «прочитано»; и у каждой из этих записей — когда и на какой из ваших установок она
+      менялась в последний раз. <strong>Файлов книг в нём нет</strong>, как нет подборок,
+      статистики, обложек, ключа Gemini, паролей каталогов и настроек приложения.</li>
+  <li><strong>Куда он уходит.</strong> С вашего устройства прямо в Google Диск
+      (<code>www.googleapis.com</code>) — по одному небольшому файлу на установку, с именем
+      <em>lexirion-sync.json</em>, в скрытой папке приложения. Каждое ваше устройство читает
+      файлы, оставленные там другими. У разработчика нет сервера, и этих файлов он не получает
+      никогда.</li>
+  <li><strong>Когда.</strong> Файлы других ваших устройств приложение читает, когда выходит на
+      экран и когда вы открываете книгу; свой файл пишет, когда вы закрываете книгу или
+      сворачиваете приложение, если что-то изменилось, а раз в несколько недель — и без
+      изменений, чтобы другие ваши устройства продолжали его видеть. «Синхронизировать сейчас»
+      делает то же сразу. Это происходит в любой сети, а не только по Wi-Fi: место
+      чтения, приехавшее на следующий день, бесполезно. В фоне приложение соблюдает «Экономию
+      трафика» Android.</li>
+  <li><strong>Чем помечен файл.</strong> Тем же, что и копия: моделью устройства и случайной
+      отметкой установки из раздела 4 — чтобы другие ваши устройства могли сказать, на каком
+      из них вы остановились.</li>
+  <li><strong>Как прекратить.</strong> «Выключить синхронизацию» прекращает всё это. Файлы, уже
+      лежащие в скрытой папке, она не удаляет: удалить их можно в настройках Google Диска —
+      «Управление приложениями» → Lexirion → «Удалить скрытые данные приложения». «Отключить от
+      Диска» там же отзывает доступ приложения, и скрытая папка исчезает вместе с ним.</li>
+</ul>
+<p>Если синхронизацию не включать, ради неё к Google Диску приложение не обращается вовсе.</p>
 
 <h3>Чего не уходит никогда</h3>
 <p>Lexirion не передаёт разработчику содержимое вашей библиотеки, список читаемых книг,
 прогресс чтения, закладки, заметки, идентификаторы устройства или рекламные идентификаторы.
-И никому другому — с одним исключением, которое делаете вы сами: копия в вашем же Google
-Диске (раздел 4). В ней едут список ваших книг, места чтения, закладки и заметки — файлы книг
-никогда, — и есть она, только если вы её включили. Идентификаторов у
+И никому другому — с двумя исключениями, которые делаете вы сами, оба в вашем же Google
+Диске и оба только если вы их включили: копия (раздел 4), в которой едут список ваших книг,
+места чтения, закладки и заметки, и синхронизация (раздел 5), в которой едут места чтения,
+закладки и заметки без названий ваших книг. Файлов книг нет никогда ни там, ни там. Идентификаторов у
 приложения может быть два, оба случайные и оба — этой установки, а не ваши и не устройства:
 идентификатор установки Firebase из раздела 3, который появляется, только если вы задали
-вопрос без своего ключа, и отметка копии из раздела 4, которая появляется, только если вы
-включили копию. Ни телеметрии, ни службы отчётов о сбоях в приложении нет.</p>
+вопрос без своего ключа, и отметка установки из раздела 4, которая появляется, только если вы
+включили копию или синхронизацию. Ни телеметрии, ни службы отчётов о сбоях в приложении нет.</p>
 <p>Если приложение упало, оно записывает технические подробности — версию приложения, модель
 устройства, версию Android и стек ошибки — в файл в своём приватном хранилище и при следующем
 заходе в настройки предлагает их отправить. С устройства не уходит ничего, пока вы этого не
@@ -613,8 +702,12 @@ Google помнит, что вы это разрешили, поэтому пр�
       имя и пароль.</li>
   <li>Выключить копию в настройках — она прекратится; удалить файл копии в своём Google
       Диске — он сотрётся; отозвать доступ приложения к Диску в аккаунте Google.</li>
+  <li>Выключить синхронизацию в настройках — она прекратится; удалить её файлы в настройках
+      Google Диска — «Управление приложениями» → Lexirion → «Удалить скрытые данные
+      приложения».</li>
   <li>Удалить приложение или нажать «Очистить хранилище» в Android — на устройстве сотрётся
-      всё. Копию в вашем Диске это не трогает: удалить её можете только вы.</li>
+      всё. Копию и файлы синхронизации в вашем Диске это не трогает: удалить их можете только
+      вы.</li>
   <li>Ваших данных у разработчика нет. Если вы спрашивали без своего ключа, Google хранит
       случайный идентификатор установки в проекте Firebase разработчика, пока им
       пользуются; он не связан ни с именем, ни с учётной записью, ни с устройством, а
